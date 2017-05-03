@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "WWJ_VICKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "WWJ_VICKit."
   s.homepage     = "https://github.com/Venus-Software/objectivec_utility"
   s.license      = "MIT"
@@ -11,6 +11,9 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Venus-Software/objectivec_utility.git", :tag => s.version }
   s.source_files = 'WWJ_VICKit/**/*.{h,m,xib}'
   s.public_header_files = 'WWJ_VICKit/**/*.h'
+  s.resource_bundles = {
+    'WWJ_VICKit' => ['WWJ_VICKit/WWJ_NODataView/resources/*.png']
+  }  
   s.requires_arc = true
 
   s.subspec 'VICCategory' do |ss|
