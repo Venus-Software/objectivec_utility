@@ -2,15 +2,15 @@
 Pod::Spec.new do |s|
 
   s.name         = "WWJ_VICKit"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "WWJ_VICKit."
   s.homepage     = "https://github.com/Venus-Software/objectivec_utility"
   s.license      = "MIT"
   s.author       = { "sswimp" => "754612130@qq.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/Venus-Software/objectivec_utility.git", :tag => s.version }
-  s.source_files = 'WWJ_VICKit/**/*.{h,m,xib}'
-  s.public_header_files = 'WWJ_VICKit/**/*.h'
+  s.source_files = 'WWJ_VICKit/VICCategory','WWJ_VICKit/WWJ_NODataView'
+  #s.public_header_files = 'WWJ_VICKit/**/*.h'
   s.resource_bundles = {
     'WWJ_VICKit' => ['WWJ_VICKit/WWJ_NODataView/resources/*.png']
   }  
