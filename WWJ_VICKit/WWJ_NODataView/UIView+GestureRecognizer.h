@@ -18,5 +18,5 @@
  *ButtonAction
  */
 
-- (void)setButtonActionWithButton:(UIButton *)button Block:(void(^)(void))block;
+- (void)setButtonActionWithButtonBlock:(void(^)(void))block;
 @end

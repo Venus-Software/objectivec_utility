@@ -33,14 +33,23 @@ const NSString *kDTActionHandlerButtonKey = @"Button";
     }
 }
 
-- (void)setButtonActionWithButton:(UIButton *)button Block:(void (^)(void))block{
-    button = objc_getAssociatedObject(self, &kDTActionHandlerButtonKey);
+- (void)setButtonActionWithButtonBlock:(void (^)(void))block{
+   UIButton* button = objc_getAssociatedObject(self, &kDTActionHandlerButtonKey);
     if (!button) {
         [button addTarget:self action:@selector(__handleActionForButton:) forControlEvents:(UIControlEventTouchUpInside)];
         objc_setAssociatedObject(self, &kDTActionHandlerButtonKey, button, OBJC_ASSOCIATION_RETAIN);
     }
     objc_setAssociatedObject(self, &kDTActionHandlerButtonKey, block, OBJC_ASSOCIATION_COPY);
     
+}
+
+- (void)__handleActionForButton:(UIButton *)button{
+    if (button.state == UIControlEventTouchUpInside) {
+        void(^action)(void) = objc_getAssociatedObject(self, &kDTActionHandlerButtonKey);
+        if (action) {
+            action();
+        }
+    }
 }
 
 @end
